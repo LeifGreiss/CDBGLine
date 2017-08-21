@@ -64,7 +64,7 @@ d3.csv("CDBGPA.csv", type, function(error, data) {
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y))
     .append("text")
-      attr("transform", "rotate(-90)") //rotates text
+        .attr("transform", "rotate(-90)") //rotates text
         .attr("y",0 - margin.left) // positions text behind left margin
         .attr("x",0 - (height / 2)) // positions text at half of chart height
         .attr("dy", "1em")
