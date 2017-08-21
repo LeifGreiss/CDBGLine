@@ -41,7 +41,7 @@ d3.tsv("CDBGPA.csv", type, function(error, data) {
     return {
       id: id,
       values: data.map(function(d) {
-        return {date: d.Year, funds: d[id]};
+        return {Year: d.Year, funds: d[id]};
       })
     };
   });
@@ -90,7 +90,7 @@ d3.tsv("CDBGPA.csv", type, function(error, data) {
 });
 
 function type(d, _, columns) {
-  d.date = parseTime(d.Year);
+  d.Year = parseTime(d.Year);
   for (var i = 1, n = columns.length, c; i < n; ++i) d[c = columns[i]] = +d[c];
   return d;
 }
