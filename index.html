@@ -34,7 +34,7 @@ var line = d3.line()
     .x(function(d) { return x(d.Year); })
     .y(function(d) { return y(d.funds); });
 
-d3.tsv("CGBDPa.csv", type, function(error, data) {
+d3.tsv("CGBDPA.csv", type, function(error, data) {
   if (error) throw error;
 
   var places = data.columns.slice(1).map(function(id) {
