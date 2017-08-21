@@ -26,7 +26,7 @@ var svg = d3.select("svg"),
 var parseTime = d3.timeParse("%Y");
 
 var x = d3.scaleTime().range([0, width]),
-    y = d3.scaleLinear().range([height, 0]),
+    y = d3.scaleLinear().range([height, 0]);
     //z = d3.scaleOrdinal(d3.schemeCategory10);
 //axis.tickFormat(function(d) { return "$" + d; });
 var line = d3.line()
