@@ -75,12 +75,12 @@ d3.tsv("CDBGPA.csv", type, function(error, data) {
     .enter().append("g")
       .attr("class", "place");
 
-  city.append("path")
+  place.append("path")
       .attr("class", "line")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d) { return z(d.id); });
 
-  city.append("text")
+  place.append("text")
       .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
       .attr("transform", function(d) { return "translate(" + x(d.value.Year) + "," + y(d.value.funds) + ")"; })
       .attr("x", 3)
