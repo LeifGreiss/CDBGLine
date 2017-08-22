@@ -40,10 +40,9 @@ d3.csv("CDBGPA.csv", type, function(error, data) {
   if (error) throw error;
 
 color.domain(d3.keys(data[0]).filter(function(key) {
-      return key !== "date";
+      return key !== "Year";
     }));
 
-  
  var cities = color.domain().map(function(name) {
       return {
         id: id,
