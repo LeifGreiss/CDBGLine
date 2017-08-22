@@ -31,7 +31,7 @@ var x = d3.scaleTime().range([0, width]),
 
 var color = d3.scaleOrdinal()
               .domain(["Allegheny County", "Westmoreland County", "Pittsburgh"])
-              .range(["#ff4c4c", "steelblue", "#339933"]);
+              .range(["#ff4c4c", "#339933", "steelblue"]);
   
 var line = d3.line()
     //.curve(d3.curveBasis)
@@ -75,7 +75,7 @@ color.domain(d3.keys(data[0]).filter(function(key) {
   
 //create the legend
 var legend = svg.selectAll('g')
-      .data(places)
+      .data(values)
       .enter()
       .append('g')
       .attr('class', 'legend');
