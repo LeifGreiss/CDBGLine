@@ -120,7 +120,7 @@ var legend = svg.selectAll('g')
   place.append("path")
       .attr("class", "line")
       .attr("d", function(d) { return line(d.values); })
-      .style("stroke", function(d) { return z(d.id); });
+      .style("stroke", function(d) { return color(d.id); });
 
   place.append("text")
       .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
