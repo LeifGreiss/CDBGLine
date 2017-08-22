@@ -76,7 +76,7 @@ color.domain(d3.keys(data[0]).filter(function(key) {
   
 //create the legend
 var legend = svg.selectAll('g')
-      .data(places, function(d) {return d.id})
+      .data(places, function(d) {return d.id; })
       .enter()
       .append('g')
       .attr('class', 'legend');
