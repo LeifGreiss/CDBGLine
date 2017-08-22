@@ -109,7 +109,7 @@ var legend = svg.selectAll('g')
       .call(d3.axisLeft(y))
     .append("text")
          .attr("transform", "rotate(-90)") //rotates text
-        .attr("y",0 - margin.left) // positions text behind left margin
+        .attr("y",0 - g.left) // positions text behind left margin
         .attr("x",0 - (height / 2)) // positions text at half of chart height
         .attr("dy", "1em")
         .style("text-anchor", "middle") // center text
