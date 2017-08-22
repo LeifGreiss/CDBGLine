@@ -70,7 +70,9 @@ color.domain(d3.keys(data[0]).filter(function(key) {
     d3.max(places, function(c) { return d3.max(c.values, function(d) { return d.funds; }); })
   ]);
   
-  //z.domain(places.map(function(c) { return c.id; }));
+//z.domain(places.map(function(c) { return c.id; }));
+  
+//create the legend
 var legend = svg.selectAll('g')
       .data(places)
       .enter()
@@ -96,21 +98,28 @@ var legend = svg.selectAll('g')
       .text(function(d) {
         return d.id;
       });
+  //add the x-axis
   g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
-
+//add the y-axis
   g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y))
     .append("text")
-        .attr("transform", "rotate(-90)") //rotates text
+         .attr("transform", "rotate(-90)") //rotates text
         .attr("y",0 - margin.left) // positions text behind left margin
         .attr("x",0 - (height / 2)) // positions text at half of chart height
         .attr("dy", "1em")
         .style("text-anchor", "middle") // center text
         .text("CDBG Funds Granted");
+       /*.attr("transform", "rotate(-90)") //rotates text
+        .attr("y",0 - margin.left) // positions text behind left margin
+        .attr("x",0 - (height / 2)) // positions text at half of chart height
+        .attr("dy", "1em")
+        .style("text-anchor", "middle") // center text
+        .text("CDBG Funds Granted");*/
   
   var place = g.selectAll(".place")
     .data(places)
@@ -128,7 +137,7 @@ var legend = svg.selectAll('g')
       .attr("x", 3)
       .attr("dy", "0.35em")
       .style("font", "10px sans-serif")
-      .text(function(d) { return d.id; });
+      //.text(function(d) { return d.id; });
 });
 
 function type(d, _, columns) {
