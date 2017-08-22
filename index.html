@@ -29,14 +29,16 @@ var x = d3.scaleTime().range([0, width]),
     y = d3.scaleLinear().range([height, 0]);
 //axis.tickFormat(function(d) { return "$" + d; });
 
-var color = d3.scaleOrdinal(d3.schemeCategory10);
+var color = d3.scaleOrdinal()
+              .domain(["Allegheny County", "Westmoreland County, "Pittsburgh"])
+              .range([ "steelblue", "#9b111e", "#339933"]);
   
 var line = d3.line()
     //.curve(d3.curveBasis)
     .x(function(d) { return x(d.Year); })
     .y(function(d) { return y(d.funds); });
 
-d3.csv("CDBGPA.csv", function(error, data) {
+d3.csv("CDBGPA.csv", type, function(error, data) {
   if (error) throw error;
 
 color.domain(d3.keys(data[0]).filter(function(key) {
@@ -139,10 +141,10 @@ var legend = svg.selectAll('g')
       //.text(function(d) { return d.id; });
 });
 
-/*function type(d, _, columns) {
+function type(d, _, columns) {
   d.Year = parseTime(d.Year);
   for (var i = 1, n = columns.length, c; i < n; ++i) d[c = columns[i]] = +d[c];
   return d;
-}*/
+}
 
 </script>
