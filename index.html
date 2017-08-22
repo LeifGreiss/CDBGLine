@@ -32,9 +32,16 @@ var x = d3.scaleTime().range([0, width]),
 var color = d3.scaleOrdinal()
               .domain(["Allegheny County", "Westmoreland County", "Pittsburgh"])
               .range(["#ff4c4c", "#339933", "steelblue"]);
+
+var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom");
+  
+var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left");
   
 var line = d3.line()
-    //.curve(d3.curveBasis)
     .x(function(d) { return x(d.Year); })
     .y(function(d) { return y(d.funds); });
 
@@ -104,11 +111,13 @@ var legend = svg.selectAll('g')
   g.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      //.call(d3.axisBottom(x));
+      .call(xAxis);
 //add the y-axis
   g.append("g")
       .attr("class", "y axis")
-      .call(d3.axisLeft(y))
+      .call(yAxis)
+      //.call(d3.axisLeft(y))
     .append("text")
          .attr("transform", "rotate(-90)") //rotates text
         .attr("y",0 - g.left) // positions text behind left margin
