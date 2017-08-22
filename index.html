@@ -75,15 +75,17 @@ color.domain(d3.keys(data[0]).filter(function(key) {
   
 //create the legend
 var legend = svg.selectAll('g')
-      .data(values)
+      .data(places)
       .enter()
       .append('g')
       .attr('class', 'legend');
 
     legend.append('rect')
       .attr('x', width - 20)
-      .attr('y', function(d, i) {
-        return i * 20;
+      .attr('y', height - 20)
+        return d.id;
+      //.attr('y', function(d, i) {
+        //return i * 20;
       })
       .attr('width', 10)
       .attr('height', 10)
