@@ -42,15 +42,14 @@ d3.csv("CDBGPA.csv", function(error, data) {
 color.domain(d3.keys(data[0]).filter(function(key) {
       return key !== "Year";
     }));
-
+  
  var places = color.domain().map(function(id) {
       return {
         id: id,
         values: data.map(function(d) {
           return {
             Year: d.Year,
-            funds: +d[id]
-          };
+            funds: +d[id]};
         })
       };
     });
@@ -100,12 +99,12 @@ var legend = svg.selectAll('g')
       });
   //add the x-axis
   g.append("g")
-      .attr("class", "axis axis--x")
+      .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 //add the y-axis
   g.append("g")
-      //.attr("class", "axis axis--y")
+      .attr("class", "y axis")
       .call(d3.axisLeft(y))
     .append("text")
          .attr("transform", "rotate(-90)") //rotates text
