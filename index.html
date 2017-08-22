@@ -82,10 +82,11 @@ var legend = svg.selectAll('g')
 
     legend.append('rect')
       .attr('x', width - 20)
-      .attr('y', height - 20)
-        return d.id;
-      //.attr('y', function(d, i) {
-        //return i * 20;
+      //.attr('y', height - 20)
+       // return d.id;
+      .attr('y', function(d, i) {
+        //return i * 20 ;
+       return d.id
       })
       .attr('width', 10)
       .attr('height', 10)
